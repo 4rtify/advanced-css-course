@@ -1,3 +1,5 @@
+@use "../abstracts/" as *;
+
 .btn {
   &:link,
   &:visited {
@@ -21,6 +23,19 @@
     }
   }
 
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
   &:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 0.8rem rgba($color-black, 0.2);
@@ -33,19 +48,6 @@
     &::after {
       background-color: $color-white;
     }
-  }
-
-  &::after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
   }
 
   &--animated {
